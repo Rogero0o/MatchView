@@ -11,7 +11,7 @@ I like the animation in that project...so i studied his codes and make this..<br
 
 ## Demo
 
-[Download Demo](https://raw.githubusercontent.com/Rogero0o/MatchView/blob/master/demo/MatchView_Demo_V1.0.apk)
+[Download Demo](https://raw.githubusercontent.com/Rogero0o/MatchView/master/demo/MatchView_Demo_V1.0.apk)
 
 ### Step
 
