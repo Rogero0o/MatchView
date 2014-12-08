@@ -44,7 +44,7 @@ compile project(':library')
         android:layout_height="wrap_content" />
 ```
 
-### Or config in java code
+##### Or config in java code
 
 ```java
 // the following are default settings
