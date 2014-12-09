@@ -61,3 +61,5 @@ compile project(':library')
 A small guy  in mainland FUJIAN China.
 
 If you have any new idea about this project, feel free to tell me ,Tks. :smiley:
+
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-MatchView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1194)
