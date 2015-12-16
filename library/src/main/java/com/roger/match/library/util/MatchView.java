@@ -9,10 +9,8 @@ import android.graphics.PointF;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Transformation;
-
 import java.util.ArrayList;
 
 /**
@@ -52,14 +50,13 @@ public class MatchView extends View {
     private int mTextColor = Color.WHITE;
     private Handler mHandler;
     private float progress = 0;
-    private float mInTime = 0.8f;//划入时间(单位秒)
-    private float mOutTime = 0.8f;//划出时间(单位秒)
-    private boolean isBeginLight = true;//结束后是否播放动画（默认为是）
-    private int mPaddingTop = 15;//滑动的高度
+    private float mInTime = 0.8f;
+    private float mOutTime = 0.8f;
+    private boolean isBeginLight = true;
+    private int mPaddingTop = 15;
     private float mTextSize = 25f;
 
     /**
-     * 加载状态 1、划入 2、划出
      */
     private int STATE = 0;
 
@@ -103,7 +100,7 @@ public class MatchView extends View {
             @Override
             public void dispatchMessage(Message msg) {
                 super.dispatchMessage(msg);
-                if (STATE == 1) {//划入
+                if (STATE == 1) {
                     if (progress < 100) {
                         progress++;
                         setProgress((progress * 1f / (100)));
@@ -114,7 +111,7 @@ public class MatchView extends View {
                             mMatchInListener.onFinish();
                         }
                     }
-                } else if (STATE == 2) {//划出
+                } else if (STATE == 2) {
                     if (mIsInLoading) {
                         lightFinish();
                     }
@@ -134,47 +131,22 @@ public class MatchView extends View {
         };
     }
 
-    /**
-     * 设置划入动画时长
-     *
-     * @param mTime (单位秒)
-     */
     public void setInTime(float mTime) {
         mInTime = mTime;
     }
 
-    /**
-     * 设置划出动画时长
-     *
-     * @param mTime (单位秒)
-     */
     public void setOutTime(float mTime) {
         mOutTime = mTime;
     }
 
-    /**
-     * 划入后是否开始闪光
-     *
-     * @param isLight
-     */
     public void setLight(boolean isLight) {
         isBeginLight = isLight;
     }
 
-    /**
-     * 设置划入动画的高度
-     *
-     * @param dp
-     */
     public void setPaddingTop(int dp) {
         mPaddingTop = dp;
     }
 
-    /**
-     * 设置字体大小
-     *
-     * @param mTextSize
-     */
     public void setTextSize(float mTextSize) {
         this.mTextSize = mTextSize;
     }
