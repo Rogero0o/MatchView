@@ -19,11 +19,11 @@ Import this project into android studio..it's build with it.
 
 ###  Usage
 
-#### Maven Central
+#### jcenter
 
 gradle
 ```
-compile project(':library')
+compile 'com.roger.match.library:library:1.0.1'
 ```
 
 ##### Config in xml
