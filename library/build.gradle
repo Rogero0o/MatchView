@@ -2,11 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 // This is the library version used when deploying the artifact
-version = "1.0.0"
+version = "1.0.1"
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.0"
-    resourcePrefix "matchview__"	//Õâ¸öËæ±ãÌî
+    resourcePrefix "matchview__"	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 21
@@ -20,13 +20,9 @@ android {
         }
     }
 }
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.2'
-}
-def siteUrl = 'https://github.com/Rogero0o/MatchView'      // ÏîÄ¿µÄÖ÷Ò³
-def gitUrl = 'https://github.com/Rogero0o/MatchView.git'   // Git²Ö¿âµÄurl
-group = "com.roger.match.library"                                        // Maven Group ID for the artifact£¬Ò»°ãÌîÄãÎ¨Ò»µÄ°üÃû
+def siteUrl = 'https://github.com/Rogero0o/MatchView'      // ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ò³
+def gitUrl = 'https://github.com/Rogero0o/MatchView.git'   // Gitï¿½Ö¿ï¿½ï¿½url
+group = "com.roger.match.library"                                        // Maven Group ID for the artifactï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¨Ò»ï¿½Ä°ï¿½ï¿½ï¿½
 install {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
@@ -34,7 +30,7 @@ install {
             project {
                 packaging 'aar'
                 // Add your description here
-                name 'MatchView: a cool animation textview' 	//ÏîÄ¿ÃèÊö
+                name 'MatchView: a cool animation textview' 	//ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
                 url siteUrl
                 // Set your license
                 licenses {
@@ -45,7 +41,7 @@ install {
                 }
                 developers {
                     developer {
-                        id 'roger'		//ÌîÐ´µÄÒ»Ð©»ù±¾ÐÅÏ¢
+                        id 'roger'		//ï¿½ï¿½Ð´ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
                         name 'Roger'
                         email 'flyrogermail@gmail.com'
                     }
@@ -83,7 +79,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"
-        name = "MatchView"	//·¢²¼µ½JCenterÉÏµÄÏîÄ¿Ãû×Ö
+        name = "MatchView"	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JCenterï¿½Ïµï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
