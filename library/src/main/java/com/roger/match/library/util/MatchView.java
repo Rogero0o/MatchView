@@ -11,6 +11,7 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Transformation;
+
 import java.util.ArrayList;
 
 /**
@@ -21,7 +22,6 @@ import java.util.ArrayList;
  * FIXME
  */
 public class MatchView extends View {
-    //
     public ArrayList<MatchItem> mItemList = new ArrayList<MatchItem>();
 
     private int mLineWidth;
@@ -62,6 +62,7 @@ public class MatchView extends View {
 
     private MatchInListener mMatchInListener;
     private MatchOutListener mMatchOutListener;
+    private MatchAnimateRoundListener mMatchAnimateRoundListener;
 
     public void setMatchInListener(MatchInListener mMatchInListener) {
         this.mMatchInListener = mMatchInListener;
@@ -69,6 +70,10 @@ public class MatchView extends View {
 
     public void setMatchOutListener(MatchOutListener mMatchOutListener) {
         this.mMatchOutListener = mMatchOutListener;
+    }
+
+    public void setMatchAnimateRoundListener(MatchAnimateRoundListener mMatchAnimateRoundListener) {
+        this.mMatchAnimateRoundListener = mMatchAnimateRoundListener;
     }
 
     public MatchView(Context context) {
@@ -392,14 +397,17 @@ public class MatchView extends View {
 
                 index = index % mItemList.size();
                 MatchItem item = mItemList.get(index);
-
                 item.setFillAfter(false);
                 item.setFillEnabled(true);
                 item.setFillBefore(false);
                 item.setDuration(mLoadingAniItemDuration);
                 item.start(mFromAlpha, mToAlpha);
+                if (index == mItemList.size() - 1) {
+                    if (mMatchAnimateRoundListener != null) {
+                        mMatchAnimateRoundListener.onAnimateRoundFinish();
+                    }
+                }
             }
-
             mTick++;
             if (mRunning) {
                 postDelayed(this, mInterval);
@@ -426,5 +434,9 @@ public class MatchView extends View {
         public void onProgressUpdate(float progress);
 
         public void onFinish();
+    }
+
+    public interface MatchAnimateRoundListener {
+        void onAnimateRoundFinish();
     }
 }

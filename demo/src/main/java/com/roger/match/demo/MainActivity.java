@@ -2,10 +2,12 @@ package com.roger.match.demo;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
 import com.roger.match.library.MatchTextView;
+import com.roger.match.library.util.MatchView;
 import com.roger.match.myapplication.R;
 
 
@@ -20,6 +22,12 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         mMatchTextView = (MatchTextView) findViewById(R.id.mMatchTextView);
+        mMatchTextView.setMatchAnimateRoundListener(new MatchView.MatchAnimateRoundListener() {
+            @Override
+            public void onAnimateRoundFinish() {
+                Log.i("Tag","onAnimateRoundFinish");
+            }
+        });
         mSeekBar = (SeekBar) findViewById(R.id.mSeekBar);
         mSeekBar.setProgress(100);
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
